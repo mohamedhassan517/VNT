@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Calendar, MapPin, Filter, ArrowRight } from "lucide-react";
 
 export default function Tours() {
@@ -274,15 +275,13 @@ export default function Tours() {
                             <span className="text-xs ml-1">ر.س</span>
                           </p>
                         </div>
-                        <a
-                          href="https://wa.me/YOUR_PHONE_NUMBER"
+                        <Link
+                          to={`/tours/${tour.id}`}
                           className="btn-primary flex items-center gap-2 text-sm"
-                          target="_blank"
-                          rel="noopener noreferrer"
                         >
                           احجز
                           <ArrowRight size={16} />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

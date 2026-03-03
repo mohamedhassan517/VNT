@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import {
   CheckCircle,
   Hotel,
@@ -18,7 +18,7 @@ export default function HajjUmrah() {
     isHajj ?
       [
         {
-          id: 1,
+          id: "hajj-1",
           name: "حج اقتصادي",
           rating: "3 نجوم",
           price: 3500,
@@ -45,7 +45,7 @@ export default function HajjUmrah() {
           ],
         },
         {
-          id: 2,
+          id: "hajj-2",
           name: "حج 4 نجوم",
           rating: "4 نجوم",
           price: 5500,
@@ -73,7 +73,7 @@ export default function HajjUmrah() {
           ],
         },
         {
-          id: 3,
+          id: "hajj-3",
           name: "حج 5 نجوم",
           rating: "5 نجوم",
           price: 8500,
@@ -102,7 +102,7 @@ export default function HajjUmrah() {
           ],
         },
         {
-          id: 4,
+          id: "hajj-4",
           name: "حج VIP",
           rating: "VIP",
           price: 12000,
@@ -133,7 +133,7 @@ export default function HajjUmrah() {
       ]
     : [
         {
-          id: 1,
+          id: "umrah-1",
           name: "عمرة اقتصادية",
           rating: "3 نجوم",
           price: 1200,
@@ -160,7 +160,7 @@ export default function HajjUmrah() {
           ],
         },
         {
-          id: 2,
+          id: "umrah-2",
           name: "عمرة 4 نجوم",
           rating: "4 نجوم",
           price: 2200,
@@ -188,7 +188,7 @@ export default function HajjUmrah() {
           ],
         },
         {
-          id: 3,
+          id: "umrah-3",
           name: "عمرة 5 نجوم",
           rating: "5 نجوم",
           price: 4000,
@@ -217,7 +217,7 @@ export default function HajjUmrah() {
           ],
         },
         {
-          id: 4,
+          id: "umrah-4",
           name: "عمرة VIP",
           rating: "VIP",
           price: 6500,
@@ -354,14 +354,12 @@ export default function HajjUmrah() {
                 </div>
 
                 {/* CTA */}
-                <a
-                  href="https://wa.me/YOUR_PHONE_NUMBER"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={`/tours/${pkg.id}`}
                   className="w-full btn-primary flex items-center justify-center gap-2"
                 >
                   احجز الآن
-                </a>
+                </Link>
               </div>
             </div>
           ))}
