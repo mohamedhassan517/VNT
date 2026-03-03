@@ -1,7 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Calendar, MapPin, Users, ArrowRight, Filter } from "lucide-react";
+import { Calendar, MapPin, Filter, ArrowRight } from "lucide-react";
 
 export default function Tours() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
@@ -223,19 +222,12 @@ export default function Tours() {
           {/* Tours Grid */}
           <div className="lg:col-span-3">
             {filteredTours.length > 0 ? (
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 gap-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                {filteredTours.map((tour) => (
-                  <motion.div
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {filteredTours.map((tour, idx) => (
+                  <div
                     key={tour.id}
-                    className="group bg-white rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow transition-all duration-300 hover:-translate-y-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
+                    className="group bg-white rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow transition-all duration-300 hover:-translate-y-2 animate-fade-in-up"
+                    style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}
                   >
                     <div className="relative h-56 overflow-hidden">
                       <img
@@ -293,9 +285,9 @@ export default function Tours() {
                         </a>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
+              </div>
             ) : (
               <div className="text-center py-12">
                 <p className="text-muted-foreground text-lg">

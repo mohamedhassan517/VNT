@@ -1,6 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 
 export default function Contact() {
@@ -65,32 +64,24 @@ export default function Contact() {
               link: "#",
             },
           ].map((item, index) => (
-            <motion.a
+            <a
               key={index}
               href={item.link}
-              className="bg-white rounded-xl soft-shadow-md p-8 text-center hover:soft-shadow transition-all duration-300 group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              className="bg-white rounded-xl soft-shadow-md p-8 text-center hover:soft-shadow transition-all duration-300 group animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}
             >
               <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
                 <item.icon size={32} className="text-secondary group-hover:text-white" />
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
               <p className="text-muted-foreground">{item.details}</p>
-            </motion.a>
+            </a>
           ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h2 className="text-3xl font-bold text-primary mb-6">
               أرسل لنا استفسار
             </h2>
@@ -179,31 +170,21 @@ export default function Contact() {
               </button>
 
               {submitted && (
-                <motion.div
-                  className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center animate-fade-in">
                   شكراً! تم استقبال رسالتك بنجاح. سنتواصل معك قريباً.
-                </motion.div>
+                </div>
               )}
             </form>
-          </motion.div>
+          </div>
 
           {/* WhatsApp CTA and Map */}
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="space-y-8">
             {/* WhatsApp Card */}
             <a
               href="https://wa.me/YOUR_PHONE_NUMBER"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-green-400 to-green-600 rounded-2xl soft-shadow p-8 text-white text-center hover:soft-shadow transition-all duration-300 hover:-translate-y-2"
+              className="group bg-gradient-to-br from-green-400 to-green-600 rounded-2xl soft-shadow p-8 text-white text-center hover:soft-shadow transition-all duration-300 hover:-translate-y-2 block animate-fade-in-up"
             >
               <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MessageCircle size={40} />
@@ -218,7 +199,7 @@ export default function Contact() {
             </a>
 
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden soft-shadow-md h-96">
+            <div className="rounded-2xl overflow-hidden soft-shadow-md h-96 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
               <iframe
                 width="100%"
                 height="100%"
@@ -230,7 +211,7 @@ export default function Contact() {
             </div>
 
             {/* Business Hours */}
-            <div className="bg-primary/5 rounded-xl p-6">
+            <div className="bg-primary/5 rounded-xl p-6 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
               <h4 className="text-lg font-bold text-primary mb-4">ساعات العمل</h4>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <div className="flex justify-between">
@@ -247,7 +228,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </Layout>

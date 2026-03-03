@@ -1,9 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { useSearchParams } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
   CheckCircle,
-  Users,
   Hotel,
   Plane,
   FileText,
@@ -249,19 +247,6 @@ export default function HajjUmrah() {
         },
       ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <Layout>
       {/* Page Header */}
@@ -278,17 +263,12 @@ export default function HajjUmrah() {
 
       {/* Packages Grid */}
       <div className="container mx-auto px-4 py-12">
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {packages.map((pkg) => (
-            <motion.div
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {packages.map((pkg, idx) => (
+            <div
               key={pkg.id}
-              className="bg-white rounded-2xl soft-shadow-md overflow-hidden hover:soft-shadow transition-all duration-300 hover:-translate-y-2 group"
-              variants={itemVariants}
+              className="bg-white rounded-2xl soft-shadow-md overflow-hidden hover:soft-shadow transition-all duration-300 hover:-translate-y-2 group animate-fade-in-up"
+              style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-primary to-primary/80 text-white p-8">
@@ -383,9 +363,9 @@ export default function HajjUmrah() {
                   احجز الآن
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </Layout>
   );

@@ -1,6 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
   Star,
   Users,
@@ -8,26 +7,11 @@ import {
   Clock,
   MapPin,
   Calendar,
-  Zap,
   Shield,
-  Quote,
   ArrowRight,
 } from "lucide-react";
 
 export default function Index() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <Layout>
       {/* Hero Section */}
@@ -43,12 +27,7 @@ export default function Index() {
         </div>
 
         <div className="relative h-full flex items-center justify-center container mx-auto px-4">
-          <motion.div
-            className="text-center text-white max-w-2xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="text-center text-white max-w-2xl animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               رحلتك تبدأ معنا
             </h1>
@@ -63,33 +42,21 @@ export default function Index() {
                 تصفح العروض
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Best Offers Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
               أفضل العروض
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto"></div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 image:
@@ -113,10 +80,10 @@ export default function Index() {
                 price: "من 1,200 ريال",
               },
             ].map((offer, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="group bg-white rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow transition-all duration-300 hover:-translate-y-2"
-                variants={itemVariants}
+                className="group bg-white rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow transition-all duration-300 hover:-translate-y-2 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -143,93 +110,66 @@ export default function Index() {
                     <ArrowRight size={18} />
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Hajj & Umrah Section */}
       <section className="py-20 bg-gradient-to-b from-primary/5 to-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
               الحج والعمرة
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto"></div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={itemVariants}>
-              <Link
-                to="/hajj-umrah?type=umrah"
-                className="group relative h-64 rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow block"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1535356713196-2fbf0f60e75a?w=600&h=500&fit=crop"
-                  alt="عمرة"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 transition-colors duration-300 flex items-center justify-center">
-                  <button className="btn-primary">برامج العمرة</button>
-                </div>
-              </Link>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <Link
+              to="/hajj-umrah?type=umrah"
+              className="group relative h-64 rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow block animate-fade-in-up"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1535356713196-2fbf0f60e75a?w=600&h=500&fit=crop"
+                alt="عمرة"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 transition-colors duration-300 flex items-center justify-center">
+                <button className="btn-primary">برامج العمرة</button>
+              </div>
+            </Link>
 
-            <motion.div variants={itemVariants}>
-              <Link
-                to="/hajj-umrah?type=hajj"
-                className="group relative h-64 rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow block"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1564441888220-84f4dd618e0c?w=600&h=500&fit=crop"
-                  alt="حج"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 transition-colors duration-300 flex items-center justify-center">
-                  <button className="btn-primary">برامج الحج</button>
-                </div>
-              </Link>
-            </motion.div>
-          </motion.div>
+            <Link
+              to="/hajj-umrah?type=hajj"
+              className="group relative h-64 rounded-2xl overflow-hidden soft-shadow-md hover:soft-shadow block animate-fade-in-up"
+              style={{ animationDelay: '100ms', animationFillMode: 'both' }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1564441888220-84f4dd618e0c?w=600&h=500&fit=crop"
+                alt="حج"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 transition-colors duration-300 flex items-center justify-center">
+                <button className="btn-primary">برامج الحج</button>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Why Us Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
               لماذا نحن؟
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto"></div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-4 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               {
                 icon: Award,
@@ -252,10 +192,10 @@ export default function Index() {
                 description: "آلاف العملاء الراضين",
               },
             ].map((feature, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="text-center p-6 rounded-xl hover:soft-shadow transition-all duration-300 group"
-                variants={itemVariants}
+                className="text-center p-6 rounded-xl hover:soft-shadow transition-all duration-300 group animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}
               >
                 <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
                   <feature.icon size={28} className="text-secondary group-hover:text-white" />
@@ -266,35 +206,23 @@ export default function Index() {
                 <p className="text-muted-foreground text-sm">
                   {feature.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
               آراء العملاء
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto"></div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 name: "محمد أحمد",
@@ -312,10 +240,10 @@ export default function Index() {
                 rating: 5,
               },
             ].map((testimonial, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="bg-white p-6 rounded-xl soft-shadow-md hover:soft-shadow transition-all duration-300"
-                variants={itemVariants}
+                className="bg-white p-6 rounded-xl soft-shadow-md hover:soft-shadow transition-all duration-300 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -340,22 +268,16 @@ export default function Index() {
                     <p className="text-xs text-muted-foreground">عميل سعيد</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-primary/80">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center text-white max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center text-white max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               احجز رحلتك الآن واستمتع بأفضل العروض
             </h2>
@@ -378,7 +300,7 @@ export default function Index() {
                 تصفح جميع الرحلات
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </Layout>
