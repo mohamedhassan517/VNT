@@ -59,6 +59,7 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
+                id: "offer-1",
                 image:
                   "https://images.unsplash.com/photo-1520763185298-1b434c919eba?w=500&h=400&fit=crop",
                 title: "عمرة مميزة",
@@ -66,6 +67,7 @@ export default function Index() {
                 price: "من 1,500 ريال",
               },
               {
+                id: "offer-2",
                 image:
                   "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=400&fit=crop",
                 title: "حج الميزانية",
@@ -73,6 +75,7 @@ export default function Index() {
                 price: "من 3,000 ريال",
               },
               {
+                id: "offer-3",
                 image:
                   "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop",
                 title: "رحلة سياحية",
@@ -105,10 +108,10 @@ export default function Index() {
                       {offer.price}
                     </p>
                   </div>
-                  <button className="w-full btn-primary flex items-center justify-center gap-2">
+                  <Link to={`/tours/${offer.id}`} className="w-full btn-primary flex items-center justify-center gap-2">
                     عرض التفاصيل
                     <ArrowRight size={18} />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

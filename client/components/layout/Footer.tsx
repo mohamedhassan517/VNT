@@ -12,11 +12,22 @@ export const Footer = () => {
               <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
                 <span className="text-primary font-bold">✈</span>
               </div>
-              <h3 className="text-xl font-bold">وجهتك</h3>
+              <h3 className="text-xl font-bold">VNT</h3>
             </div>
-            <p className="text-white/70 text-sm">
+            <p className="text-white/70 text-sm mb-6">
               شركة متخصصة في تنظيم رحلات الحج والعمرة والرحلات السياحية بأفضل الأسعار والخدمات
             </p>
+            <div className="space-y-2">
+              <p className="text-white/80 text-xs font-semibold">طرق الدفع المقبولة:</p>
+              <div className="flex gap-3">
+                <div className="bg-white/90 px-2 py-1 rounded flex items-center">
+                  <span className="text-primary font-bold text-xs">VISA</span>
+                </div>
+                <div className="bg-white/90 px-2 py-1 rounded flex items-center">
+                  <span className="text-red-600 font-bold text-xs">Mastercard</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -52,15 +63,25 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-white/70">
                 <Phone size={16} className="text-secondary flex-shrink-0" />
-                +966 50 123 4567
+                <a
+                  href="tel:+201030146303"
+                  className="hover:text-secondary transition-colors"
+                >
+                  +20 103 014 6303
+                </a>
               </li>
               <li className="flex items-center gap-2 text-white/70">
                 <Mail size={16} className="text-secondary flex-shrink-0" />
-                info@wajeha.com
+                <a
+                  href="mailto:mohamedhassanali001@gmail.com"
+                  className="hover:text-secondary transition-colors break-all"
+                >
+                  mohamedhassanali001@gmail.com
+                </a>
               </li>
               <li className="flex items-start gap-2 text-white/70">
                 <MapPin size={16} className="text-secondary flex-shrink-0 mt-0.5" />
-                <span>الرياض، المملكة العربية السعودية</span>
+                <span>الغردقة، البحر الأحمر، مصر (الكوثر)</span>
               </li>
             </ul>
           </div>
@@ -68,7 +89,7 @@ export const Footer = () => {
           {/* Social Links */}
           <div>
             <h4 className="font-semibold mb-4 text-secondary">تابعنا</h4>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-6">
               <a
                 href="#"
                 className="w-10 h-10 rounded-lg bg-secondary/20 hover:bg-secondary hover:text-primary flex items-center justify-center transition-all duration-300"
@@ -94,13 +115,21 @@ export const Footer = () => {
                 <Twitter size={18} />
               </a>
             </div>
+            <a
+              href="https://wa.me/201030146303"
+              className="inline-block bg-green-500 text-white px-4 py-2 rounded-lg text-xs font-semibold hover:bg-green-600 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              واتساب
+            </a>
           </div>
         </div>
 
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
           <div className="text-center text-white/60 text-sm">
-            <p>&copy; 2024 وجهتك - جميع الحقوق محفوظة</p>
+            <p>&copy; 2024 VNT - جميع الحقوق محفوظة</p>
           </div>
         </div>
       </div>

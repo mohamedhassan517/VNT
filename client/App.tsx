@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Tours from "./pages/Tours";
 import Contact from "./pages/Contact";
 import HajjUmrah from "./pages/HajjUmrah";
+import TourDetail from "./pages/TourDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tours" element={<Tours />} />
+          <Route path="/tours/:id" element={<TourDetail />} />
           <Route path="/hajj-umrah" element={<HajjUmrah />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
