@@ -94,19 +94,19 @@ export default function Index() {
             {[
               {
                 name: t("home.destinations.sharm"),
-                image: "/images/destinations/Sharm El Sheikh.jpg",
+                image: "/images/destinations/Sharm.webp",
                 icon: MapPin,
                 link: "/tours",
               },
               {
                 name: t("home.destinations.marsa_alam"),
-                image: "/images/destinations/Marsa_Alam.jpg",
+                image: "/images/destinations/Marsa_Alam.webp",
                 icon: MapPin,
                 link: "/tours",
               },
               {
                 name: t("home.destinations.luxor"),
-                image: "/images/destinations/luxor.jpg",
+                image: "/images/destinations/luxor.webp",
                 icon: MapPin,
                 link: "/tours",
               },
@@ -118,7 +118,7 @@ export default function Index() {
               },
               {
                 name: t("home.destinations.hurghada"),
-                image: "/images/destinations/Hurghada_2.jpg",
+                image: "/images/destinations/Hurghada.webp",
                 icon: MapPin,
                 link: "/tours",
               },
@@ -277,7 +277,7 @@ export default function Index() {
             {[
               {
                 id: 1,
-                image: "/images/tours/Luxor & Aswan.jpg",
+                image: "/images/tours/Luxor_Aswan.jpg",
                 title: t("home.packages.luxor_aswan"),
                 days: 2,
                 price: 80,
