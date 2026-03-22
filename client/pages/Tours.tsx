@@ -1,79 +1,122 @@
 import { Layout } from "@/components/layout/Layout";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Calendar, MapPin, Filter, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Tours() {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
+  const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
+  const typeParam = searchParams.get("type");
+
+  const [selectedType, setSelectedType] = useState<string | null>(typeParam);
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
   const [selectedDays, setSelectedDays] = useState<string | null>(null);
+
+  useEffect(() => {
+    setSelectedType(typeParam);
+  }, [typeParam]);
 
   const allTours = [
     {
       id: 1,
-      title: "عمرة مميزة - 7 أيام",
-      type: "umrah",
-      image:
-        "https://images.unsplash.com/photo-1520763185298-1b434c919eba?w=600&h=400&fit=crop",
-      days: 7,
-      price: 1500,
-      location: "مكة المكرمة",
-      description: "رحلة عمرة شاملة مع إقامة 5 نجوم",
+      title: t("home.packages.luxor_aswan"),
+      type: "tour",
+      image: "/images/tours/Luxor & Aswan.jpg",
+      days: 2,
+      price: 80,
+      location: t("common.locations.egypt"),
+      description: t("home.packages.luxor_aswan_desc"),
     },
     {
       id: 2,
-      title: "حج الميزانية - 10 أيام",
-      type: "hajj",
-      image:
-        "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop",
-      days: 10,
-      price: 3000,
-      location: "مكة والمدينة",
-      description: "برنامج حج اقتصادي مع خدمات أساسية",
+      title: t("home.packages.pyramids"),
+      type: "tour",
+      image: "/images/tours/pyramids.webp",
+      days: 1,
+      price: 65,
+      location: t("common.locations.egypt"),
+      description: t("home.packages.pyramids_desc"),
     },
     {
       id: 3,
-      title: "رحلة سياحية - 5 أيام",
+      title: t("home.packages.safari"),
       type: "tour",
-      image:
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
-      days: 5,
-      price: 1200,
-      location: "دبي",
-      description: "رحلة سياحية شاملة مع جميع الخدمات",
+      image: "/images/tours/safari.avif",
+      days: 2,
+      price: 90,
+      location: t("common.locations.egypt"),
+      description: t("home.packages.safari_desc"),
     },
     {
       id: 4,
-      title: "عمرة VIP - 10 أيام",
-      type: "umrah",
-      image:
-        "https://images.unsplash.com/photo-1535356713196-2fbf0f60e75a?w=600&h=400&fit=crop",
-      days: 10,
-      price: 4500,
-      location: "مكة المكرمة",
-      description: "عمرة فاخرة مع خدمات VIP و5 نجوم",
+      title: t("home.packages.cruise"),
+      type: "hotel",
+      image: "/images/tours/Luxury Nile Cruise.jpg",
+      days: 7,
+      price: 1550,
+      location: t("common.locations.egypt"),
+      description: t("home.packages.cruise_desc"),
     },
     {
       id: 5,
-      title: "حج VIP - 14 أيام",
-      type: "hajj",
-      image:
-        "https://images.unsplash.com/photo-1564441888220-84f4dd618e0c?w=600&h=400&fit=crop",
-      days: 14,
-      price: 8000,
-      location: "مكة والمدينة",
-      description: "برنامج حج فاخر مع خدمات VIP كاملة",
+      title: t("home.packages.savoy"),
+      type: "hotel",
+      image: "/images/tours/savoy.jpg",
+      days: 5,
+      price: 610,
+      location: t("common.locations.sharm"),
+      description: t("home.packages.savoy_desc"),
     },
     {
       id: 6,
-      title: "رحلة آسيا - 8 أيام",
-      type: "tour",
-      image:
-        "https://images.unsplash.com/photo-1540959375944-7049f642e9a8?w=600&h=400&fit=crop",
-      days: 8,
+      title: t("home.packages.beachfront"),
+      type: "hotel",
+      image: "/images/tours/Beachfront Resort Stay.jpg",
+      days: 3,
+      price: 450,
+      location: t("common.locations.egypt"),
+      description: t("home.packages.beachfront_desc"),
+    },
+    {
+      id: "hajj-1",
+      title: t("hajj_umrah_page.economy_hajj"),
+      type: "hajj_umrah",
+      image: "/images/hajj/h2.jpg",
+      days: 12,
+      price: 3500,
+      location: t("common.locations.saudi_arabia"),
+      description: t("hajj_umrah_page.hajj_desc"),
+    },
+    {
+      id: "hajj-2",
+      title: t("hajj_umrah_page.vip_hajj"),
+      type: "hajj_umrah",
+      image: "/images/hajj/h4.jpg",
+      days: 14,
+      price: 7500,
+      location: t("common.locations.saudi_arabia"),
+      description: t("hajj_umrah_page.hajj_desc"),
+    },
+    {
+      id: "umrah-1",
+      title: t("hajj_umrah_page.economy_umrah"),
+      type: "hajj_umrah",
+      image: "/images/hajj/h3.jpg",
+      days: 10,
+      price: 1200,
+      location: t("common.locations.saudi_arabia"),
+      description: t("hajj_umrah_page.umrah_desc"),
+    },
+    {
+      id: "umrah-2",
+      title: t("hajj_umrah_page.premium_umrah"),
+      type: "hajj_umrah",
+      image: "/images/hajj/h4.png",
+      days: 15,
       price: 2500,
-      location: "تايلاند",
-      description: "رحلة سياحية رائعة في جنوب شرق آسيا",
+      location: t("common.locations.saudi_arabia"),
+      description: t("hajj_umrah_page.umrah_desc"),
     },
   ];
 
@@ -82,11 +125,11 @@ export default function Tours() {
     if (
       selectedPrice &&
       !(
-        (selectedPrice === "0-2000" && tour.price < 2000) ||
-        (selectedPrice === "2000-5000" &&
-          tour.price >= 2000 &&
-          tour.price < 5000) ||
-        (selectedPrice === "5000+" && tour.price >= 5000)
+        (selectedPrice === "0-100" && tour.price < 100) ||
+        (selectedPrice === "100-500" &&
+          tour.price >= 100 &&
+          tour.price < 500) ||
+        (selectedPrice === "500+" && tour.price >= 500)
       )
     ) {
       return false;
@@ -109,8 +152,8 @@ export default function Tours() {
       {/* Page Header */}
       <div className="bg-primary text-white py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold">جميع الرحلات</h1>
-          <p className="text-white/80 mt-2">اكتشف أفضل العروض المتاحة</p>
+          <h1 className="text-4xl md:text-5xl font-bold">{t("tours.title")}</h1>
+          <p className="text-white/80 mt-2">{t("tours.subtitle")}</p>
         </div>
       </div>
 
@@ -122,22 +165,22 @@ export default function Tours() {
             <div className="bg-white rounded-xl soft-shadow-md p-6 sticky top-24">
               <div className="flex items-center gap-2 mb-6">
                 <Filter size={20} className="text-secondary" />
-                <h3 className="text-lg font-bold text-primary">تصفية</h3>
+                <h3 className="text-lg font-bold text-primary">{t("tours.filter")}</h3>
               </div>
 
               {/* Type Filter */}
               <div className="mb-6">
                 <label className="block text-sm font-semibold text-primary mb-3">
-                  نوع الرحلة
+                  {t("tours.type")}
                 </label>
                 <div className="space-y-2">
                   {[
-                    { value: null, label: "الكل" },
-                    { value: "umrah", label: "عمرة" },
-                    { value: "hajj", label: "حج" },
-                    { value: "tour", label: "سياحة" },
+                    { value: null, label: t("tours.types.all") },
+                    { value: "tour", label: t("nav.activities") },
+                    { value: "hotel", label: t("nav.hotels") },
+                    { value: "hajj_umrah", label: t("nav.hajj_umrah") },
                   ].map((option) => (
-                    <label key={option.value} className="flex items-center gap-2 cursor-pointer">
+                    <label key={option.value || "all"} className="flex items-center gap-2 cursor-pointer">
                       <input
                         type="radio"
                         name="type"
@@ -155,16 +198,16 @@ export default function Tours() {
               {/* Price Filter */}
               <div className="mb-6 pb-6 border-b border-border">
                 <label className="block text-sm font-semibold text-primary mb-3">
-                  النطاق السعري
+                  {t("tours.price_range")}
                 </label>
                 <div className="space-y-2">
                   {[
-                    { value: null, label: "الكل" },
-                    { value: "0-2000", label: "أقل من 2000" },
-                    { value: "2000-5000", label: "2000 - 5000" },
-                    { value: "5000+", label: "5000 وأكثر" },
+                    { value: null, label: t("tours.prices.all") },
+                    { value: "0-100", label: t("tours.prices.less_than_2000") },
+                    { value: "100-500", label: t("tours.prices.2000_5000") },
+                    { value: "500+", label: t("tours.prices.more_than_5000") },
                   ].map((option) => (
-                    <label key={option.value} className="flex items-center gap-2 cursor-pointer">
+                    <label key={option.value || "all"} className="flex items-center gap-2 cursor-pointer">
                       <input
                         type="radio"
                         name="price"
@@ -182,16 +225,16 @@ export default function Tours() {
               {/* Days Filter */}
               <div className="mb-6">
                 <label className="block text-sm font-semibold text-primary mb-3">
-                  عدد الأيام
+                  {t("tours.days_count")}
                 </label>
                 <div className="space-y-2">
                   {[
-                    { value: null, label: "الكل" },
-                    { value: "1-7", label: "1 - 7 أيام" },
-                    { value: "8-14", label: "8 - 14 يوم" },
-                    { value: "15+", label: "15 يوم فأكثر" },
+                    { value: null, label: t("tours.days.all") },
+                    { value: "1-7", label: t("tours.days.1_7") },
+                    { value: "8-14", label: t("tours.days.8_14") },
+                    { value: "15+", label: t("tours.days.15_plus") },
                   ].map((option) => (
-                    <label key={option.value} className="flex items-center gap-2 cursor-pointer">
+                    <label key={option.value || "all"} className="flex items-center gap-2 cursor-pointer">
                       <input
                         type="radio"
                         name="days"
@@ -215,7 +258,7 @@ export default function Tours() {
                 }}
                 className="w-full py-2 px-4 bg-muted text-muted-foreground rounded-lg text-sm font-medium hover:bg-primary/10 transition-colors"
               >
-                مسح الفلاتر
+                {t("tours.clear_filters")}
               </button>
             </div>
           </div>
@@ -238,11 +281,11 @@ export default function Tours() {
                       />
                       <div className="absolute top-4 right-4">
                         <span className="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold">
-                          {tour.type === "umrah"
-                            ? "عمرة"
-                            : tour.type === "hajj"
-                              ? "حج"
-                              : "سياحة"}
+                          {tour.type === "tour"
+                            ? t("nav.activities")
+                            : tour.type === "hotel"
+                            ? t("nav.hotels")
+                            : t("nav.hajj_umrah")}
                         </span>
                       </div>
                     </div>
@@ -261,25 +304,24 @@ export default function Tours() {
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <Calendar size={16} className="text-secondary" />
-                          {tour.days} أيام
+                          {t("home.offers.days", { count: tour.days })}
                         </div>
                       </div>
 
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-xs text-muted-foreground mb-1">
-                            السعر يبدأ من
+                            {t("tours.from_price_starts")}
                           </p>
                           <p className="text-2xl font-bold text-secondary">
-                            {tour.price}
-                            <span className="text-xs ml-1">ر.س</span>
+                            {t("home.offers.from_price", { price: tour.price })}
                           </p>
                         </div>
                         <Link
                           to={`/tours/${tour.id}`}
                           className="btn-primary flex items-center gap-2 text-sm"
                         >
-                          احجز
+                          {t("tours.book")}
                           <ArrowRight size={16} />
                         </Link>
                       </div>
@@ -290,7 +332,7 @@ export default function Tours() {
             ) : (
               <div className="text-center py-12">
                 <p className="text-muted-foreground text-lg">
-                  لا توجد رحلات مطابقة للفلاتر المختارة
+                  {t("tours.no_tours")}
                 </p>
               </div>
             )}

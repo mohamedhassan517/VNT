@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "home": "Home",
+    "activities": "Our Activities",
+    "hotels": "Hotels",
+    "hajj_umrah": "Hajj & Umrah",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "gallery": "Our Gallery",
+    "book_now": "Book Now"
+  },
+  "footer": {
+    "company_description": "Virgin Nature Tours since 1983. Handling services like hotel accommodations, Nile cruises, entry visas, meet and assist, transportations, and flight tickets.",
+    "accepted_payment_methods": "Accepted payment methods:",
+    "quick_links": "Quick Links",
+    "contact_info": "Contact Info",
+    "follow_us": "Follow Us",
+    "address": "El Kawther, Hurghada, Red Sea",
+    "phone": "+201030146303",
+    "email": "info@vnt.travel",
+    "rights_reserved": "All rights reserved © 2026 Virgin Nature Tours",
+    "privacy_policy": "Privacy Policy",
+    "terms_conditions": "Terms & Conditions"
+  },
+  "home": {
+    "hero_title": "Next Adventure",
+    "hero_subtitle": "Travel Destinations Available Worldwide. Scoured the world for the most alluring and fascinating places to visit.",
+    "browse_offers": "Browse Offers",
+    "best_offers": "Our Packages",
+    "all_packages": "All Packages",
+    "destinations": {
+      "title": "Next Adventure",
+      "subtitle": "Travel Destinations Available Worldwide",
+      "desc": "We have compiled a list of top destinations across the globe, scoured the world for the most alluring and fascinating places to visit. From the beautiful beaches of the Caribbean to the majestic mountains of Europe and the vibrant cities of Asia, our destination list has something for everyone.",
+      "sharm": "Sharm El Sheikh",
+      "marsa_alam": "Marsa Alam",
+      "luxor": "Luxor",
+      "cairo": "Cairo",
+      "hurghada": "Hurghada"
+    },
+    "offers": {
+      "premium_umrah": "Umrah Trips",
+      "budget_hajj": "Hajj Trips",
+      "tourist_trip": "Tourist Trips",
+      "days": "{{count}} Days",
+      "from_price": "From {{price}} $"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "We are handling the following services",
+      "hotels": "Hotel accommodations and rooms bookings",
+      "cruises": "Nile cruise Luxor / Aswan / Luxor",
+      "visas": "Entry visas",
+      "assist": "Meet and assist inside the airports",
+      "transport": "Busses Transportations",
+      "sightseeing": "Excursions and sightseeing",
+      "flights": "International and Domestic flight tickets",
+      "vip": "VIP Services"
+    },
+    "packages": {
+      "luxor_aswan": "Luxor & Aswan Package",
+      "luxor_aswan_desc": "Experience the majestic history of Upper Egypt with our specialized Luxor and Aswan tour.",
+      "pyramids": "Giza Pyramids Day Trip",
+      "pyramids_desc": "Visit the Great Pyramids of Giza and the Sphinx in this unforgettable one-day adventure.",
+      "safari": "Hurghada Safari",
+      "safari_desc": "Explore the Red Sea desert with our thrilling safari and mountain experience.",
+      "cruise": "Luxury Nile Cruise",
+      "cruise_desc": "Relax on a luxurious 5-star Nile cruise between Luxor and Aswan.",
+      "savoy": "Savoy Sharm El Sheikh",
+      "savoy_desc": "A luxurious 5-star resort that offers an unforgettable vacation experience in Sharm El Sheikh.",
+      "beachfront": "Beachfront Resort Stay",
+      "beachfront_desc": "Enjoy a peaceful 3-day stay at one of our premium beachfront resorts."
+    },
+    "adventure": {
+      "title": "Adventure Travel",
+      "subtitle": "Embrace the Thrill of the Unknown",
+      "desc": "Are you tired of the typical tourist destinations and looking to step out of your comfort zone? Adventure travel may be the perfect solution for you!",
+      "points": [
+        "Connect with nature",
+        "Experience other cultures",
+        "Create unforgettable memories"
+      ]
+    },
+    "testimonials": {
+      "title": "Unforgettable Travel Experiences",
+      "subtitle": "Our customer's feedback is essential in building a great reputation and maintaining excellent service.",
+      "reviews": [
+        {
+          "name": "Jennifer and Mark",
+          "location": "San Francisco",
+          "comment": "My husband and I have been using this travel agency for years and they have never disappointed us."
+        },
+        {
+          "name": "Dylan and Emily",
+          "location": "Miami",
+          "comment": "This travel agency made my dream trip to Europe a reality. They worked with me every step of the way to plan the itinerary."
+        },
+        {
+          "name": "Sarah and Rick",
+          "location": "New York",
+          "comment": "I recently booked a trip to Thailand with this travel agency and I couldn't have been happier with my experience."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Book your trip now and enjoy the best offers",
+      "subtitle": "Don't miss the chance! Our offers are limited and places end quickly",
+      "book_now_whatsapp": "Book via WhatsApp"
+    }
+  },
+  "tours": {
+    "title": "All Tours",
+    "subtitle": "Discover the best available offers",
+    "filter": "Filter",
+    "type": "Tour Type",
+    "price_range": "Price Range",
+    "days_count": "Number of Days",
+    "clear_filters": "Clear Filters",
+    "no_tours": "No tours match the selected filters",
+    "from_price_starts": "Price starts from",
+    "book": "Book",
+    "types": {
+      "all": "All",
+      "umrah": "Umrah",
+      "hajj": "Hajj",
+      "tour": "Tourism"
+    },
+    "prices": {
+      "all": "All",
+      "less_than_2000": "Less than 100 $",
+      "2000_5000": "100 $ - 500 $",
+      "more_than_5000": "500 $ and more"
+    },
+    "days": {
+      "all": "All",
+      "1_7": "1 - 7 Days",
+      "8_14": "8 - 14 Days",
+      "15_plus": "15 Days and more"
+    }
+  },
+  "tour_detail": {
+    "not_found": "Tour not found",
+    "not_found_desc": "Sorry, the tour you are looking for does not exist",
+    "back_to_tours": "Back to Tours",
+    "about": "About this tour",
+    "features": "Features",
+    "schedule": "Trip Schedule",
+    "hotel": "Hotel",
+    "flight": "Flight",
+    "documents": "Required Documents",
+    "total_price": "Total Price",
+    "per_person": "Per person",
+    "accommodation_food": "Accommodation and Food",
+    "comfortable_transport": "Comfortable Transport",
+    "specialized_escort": "Specialized Escort",
+    "book_now_whatsapp": "Book now via WhatsApp",
+    "call_us": "Call Us",
+    "day_x": "Day {{count}}",
+    "days": "Days",
+    "sar": "SAR"
+  },
+  "hajj_umrah_page": {
+    "hajj_programs": "Hajj Programs",
+    "umrah_programs": "Umrah Programs",
+    "subtitle": "Choose the right program for you from us",
+    "book_now": "Book Now",
+    "economy_umrah": "Economy Umrah Program",
+    "premium_umrah": "Premium Umrah Program",
+    "economy_hajj": "Economy Hajj Program",
+    "vip_hajj": "VIP Hajj Program",
+    "stars_3": "3 Stars",
+    "stars_4": "4 Stars",
+    "stars_5": "5 Stars",
+    "umrah_desc": "Spiritual journey to the Holy Land with comfortable stay and full assistance.",
+    "hajj_desc": "Perform your Hajj pilgrimage with peace of mind and excellent services."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to answer all your questions",
+    "email": "Email",
+    "email_placeholder": "example@vnt.travel",
+    "phone_label": "Phone Number",
+    "phone_placeholder": "+20 103 014 6303",
+    "address": "Address",
+    "address_details": "El Kawther, Hurghada, Red Sea",
+    "subject": "Subject",
+    "subject_placeholder": "Subject of your inquiry",
+    "message": "Message",
+    "message_placeholder": "Write your message here...",
+    "send_message": "Send Message",
+    "success_message": "Thank you! Your message has been sent successfully. We will contact you soon.",
+    "chat_whatsapp": "Chat with us via WhatsApp",
+    "whatsapp_desc": "Get a direct and fast response to all your inquiries",
+    "open_whatsapp": "Open WhatsApp",
+    "business_hours": "Business Hours",
+    "days_mon_thu": "Sunday - Thursday",
+    "hours_mon_thu": "09:00 AM - 06:00 PM",
+    "day_fri": "Friday - Saturday",
+    "hours_fri": "Emergency Support Only",
+    "support_24_7": "Online Support",
+    "always_available": "24/7 Always Available"
+  },
+  "not_found": {
+    "title": "404",
+    "page_not_found": "Page Not Found",
+    "desc": "Sorry, the page you are looking for does not exist. Please return to the home page.",
+    "back_home": "Back to Home"
+  },
+  "common": {
+    "logo_text": "Virgin Nature Tours",
+    "language": "Language",
+    "locations": {
+      "dubai": "Dubai",
+      "thailand": "Thailand",
+      "saudi_arabia": "Saudi Arabia",
+      "egypt": "Egypt",
+      "sharm": "Sharm El Sheikh"
+    }
+  }
+}

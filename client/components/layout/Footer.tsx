@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Music2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-primary text-white mt-20">
       <div className="container mx-auto px-4 py-12">
@@ -9,22 +12,24 @@ export const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold">✈</span>
-              </div>
-              <h3 className="text-xl font-bold">VNT</h3>
+              <img src="/VNTlogo.png" alt="VNT Logo" className="h-10 w-auto object-contain" />
+              <h3 className="text-xl font-bold">{t("common.logo_text")}</h3>
             </div>
             <p className="text-white/70 text-sm mb-6">
-              شركة متخصصة في تنظيم رحلات الحج والعمرة والرحلات السياحية بأفضل الأسعار والخدمات
+              {t("footer.company_description")}
             </p>
-            <div className="space-y-2">
-              <p className="text-white/80 text-xs font-semibold">طرق الدفع المقبولة:</p>
-              <div className="flex gap-3">
-                <div className="bg-white/90 px-2 py-1 rounded flex items-center">
-                  <span className="text-primary font-bold text-xs">VISA</span>
+            <div className="space-y-4">
+              <p className="text-white/80 text-xs font-bold uppercase tracking-widest">
+                {t("footer.accepted_payment_methods")}
+              </p>
+              <div className="flex gap-4">
+                {/* Visa Logo */}
+                <div className="bg-white px-3 py-1.5 rounded-lg flex items-center h-10 w-16 justify-center shadow-lg hover:scale-110 transition-transform cursor-help group" title="Visa">
+                  <img src="/images/visa.png" alt="Visa" className="max-h-full max-w-full object-contain" />
                 </div>
-                <div className="bg-white/90 px-2 py-1 rounded flex items-center">
-                  <span className="text-red-600 font-bold text-xs">Mastercard</span>
+                {/* Mastercard Logo */}
+                <div className=" rounded-lg flex items-center h-10 w-16 justify-center shadow-lg hover:scale-110 transition-transform cursor-help group" title="Mastercard">
+                  <img src="/images/MasterCard.png" alt="Mastercard" className="max-h-full max-w-full object-contain" />
                 </div>
               </div>
             </div>
@@ -32,26 +37,36 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">روابط سريعة</h4>
+            <h4 className="font-semibold mb-4 text-secondary">{t("footer.quick_links")}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="text-white/70 hover:text-secondary transition-colors">
-                  الرئيسية
+                  {t("nav.home")}
                 </Link>
               </li>
               <li>
                 <Link to="/tours" className="text-white/70 hover:text-secondary transition-colors">
-                  الرحلات
+                  {t("nav.activities")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/tours?type=hotel" className="text-white/70 hover:text-secondary transition-colors">
+                  {t("nav.hotels")}
                 </Link>
               </li>
               <li>
                 <Link to="/hajj-umrah" className="text-white/70 hover:text-secondary transition-colors">
-                  الحج والعمرة
+                  {t("nav.hajj_umrah")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-white/70 hover:text-secondary transition-colors">
+                  {t("nav.about")}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-white/70 hover:text-secondary transition-colors">
-                  تواصل معنا
+                  {t("nav.contact")}
                 </Link>
               </li>
             </ul>
@@ -59,7 +74,7 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">معلومات التواصل</h4>
+            <h4 className="font-semibold mb-4 text-secondary">{t("footer.contact_info")}</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-white/70">
                 <Phone size={16} className="text-secondary flex-shrink-0" />
@@ -73,25 +88,25 @@ export const Footer = () => {
               <li className="flex items-center gap-2 text-white/70">
                 <Mail size={16} className="text-secondary flex-shrink-0" />
                 <a
-                  href="mailto:mohamedhassanali001@gmail.com"
+                  href="mailto:info@vnt.travel"
                   className="hover:text-secondary transition-colors break-all"
                 >
-                  mohamedhassanali001@gmail.com
+                  info@vnt.travel
                 </a>
               </li>
               <li className="flex items-start gap-2 text-white/70">
                 <MapPin size={16} className="text-secondary flex-shrink-0 mt-0.5" />
-                <span>الغردقة، البحر الأحمر، مصر (الكوثر)</span>
+                <span>{t("footer.address")}</span>
               </li>
             </ul>
           </div>
 
           {/* Social Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">تابعنا</h4>
+            <h4 className="font-semibold mb-4 text-secondary">{t("footer.follow_us")}</h4>
             <div className="flex gap-4 mb-6">
               <a
-                href="#"
+                href="https://www.facebook.com/virginnaturetours"
                 className="w-10 h-10 rounded-lg bg-secondary/20 hover:bg-secondary hover:text-primary flex items-center justify-center transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,7 +114,7 @@ export const Footer = () => {
                 <Facebook size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/virginnaturetours"
                 className="w-10 h-10 rounded-lg bg-secondary/20 hover:bg-secondary hover:text-primary flex items-center justify-center transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -107,29 +122,22 @@ export const Footer = () => {
                 <Instagram size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@virginnaturetours"
                 className="w-10 h-10 rounded-lg bg-secondary/20 hover:bg-secondary hover:text-primary flex items-center justify-center transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Twitter size={18} />
+                <Music2 size={18} />
               </a>
             </div>
-            <a
-              href="https://wa.me/201030146303"
-              className="inline-block bg-green-500 text-white px-4 py-2 rounded-lg text-xs font-semibold hover:bg-green-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              واتساب
-            </a>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/10 pt-8">
-          <div className="text-center text-white/60 text-sm">
-            <p>&copy; 2024 VNT - جميع الحقوق محفوظة</p>
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
+          <p>{t("footer.rights_reserved")}</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-secondary transition-colors">{t("footer.privacy_policy")}</a>
+            <a href="#" className="hover:text-secondary transition-colors">{t("footer.terms_conditions")}</a>
           </div>
         </div>
       </div>
